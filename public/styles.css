@@ -1,0 +1,7 @@
+pre {
+  max-height: 50vh;
+  overflow: auto;
+  margin-inline: 1rem;
+  background: none !important;
+  border-radius: 6px;
+}

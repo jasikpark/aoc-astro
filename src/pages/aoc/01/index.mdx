@@ -1,0 +1,89 @@
+<Fragment set:html="<!DOCTYPE html>" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+/>
+<link rel="stylesheet" href="/styles.css" />
+
+# Today's day one
+
+We need to find the elf with the most calories from the [input](/aoc/inputs/01.txt)
+
+## Part I
+
+The inputs are formatted as numbers delimited by single lines, so we can import the file with vite's raw import support.
+
+import input from "/aoc/inputs/01.txt?raw";
+
+```ts
+import input from "/aoc/inputs/01.txt?raw";
+```
+
+<pre>
+  <code>{input}</code>
+</pre>
+
+we can then `.split(\n\n)` and `.sum()` and `.sort()`.
+
+```ts
+const solveList = input
+  .split("\n\n")
+  .filter((x) => !!x)
+  .map((elfPack, elfNumber) => {
+    return {
+      elfPackCalories: elfPack.split("\n").reduce((sum, item) => {
+        return sum + parseInt(item);
+      }, 0),
+      elfNumber,
+    };
+  })
+  // get the largest number
+  .sort((a, b) => b.elfPackCalories - a.elfPackCalories);
+const solvePartI = solveList[0];
+```
+
+export const solveList = input
+  .split("\n\n")
+  .filter((x) => !!x)
+  .map((elfPack, elfNumber) => {
+    return {
+      elfPackCalories: elfPack.split("\n").reduce((sum, item) => {
+        return sum + parseInt(item);
+      }, 0),
+      elfNumber,
+    };
+  })
+  // get the largest number
+  .sort((a, b) => b.elfPackCalories - a.elfPackCalories);
+export const solvePartI = solveList[0];
+
+<pre>
+  <code>
+    solvePartI:
+    {JSON.stringify(solvePartI, null, 2)}
+  </code>
+</pre>
+
+## Part II
+
+Part II wants us to figure out how much the top three Elves are carrying.
+
+Luckily we can just sum the first three elves in our lists's calories carried to find this out.
+
+```ts
+export const solvePartII = solveList
+  .slice(0, 3)
+  .reduce((sum, { elfPackCalories }) => sum + elfPackCalories, 0);
+```
+
+export const solvePartII = solveList
+  .slice(0, 3)
+  .reduce((sum, { elfPackCalories }) => sum + elfPackCalories, 0);
+
+<pre>
+  <code>
+    solvePartII:
+    {JSON.stringify(solvePartII, null, 2)}
+  </code>
+</pre>
