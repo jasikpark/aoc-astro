@@ -4,4 +4,6 @@ pre {
   margin-inline: 1rem;
   background: none !important;
   border-radius: 6px;
+  --background: #0d1117;
+  --code: #C9D1D9;
 }

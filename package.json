@@ -17,8 +17,10 @@
     "@types/react-dom": "^18.0.6",
     "astro": "0.0.0-error-overlay-20221130171441",
     "astro-remote": "^0.2.3",
+    "pico-check": "^3.0.5",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "uvu": "^0.5.6",
     "zod": "^3.19.1"
   },
   "devDependencies": {

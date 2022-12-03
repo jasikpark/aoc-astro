@@ -1,0 +1,115 @@
+<Fragment set:html="<!DOCTYPE html>" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+/>
+<link rel="stylesheet" href="/styles.css" />
+
+import { Code } from "astro/components";
+
+# Today's day two
+
+We are meant to calculate a score based on the input, the first character on a
+line being the opponent's play in rock, paper, scissors, and the second
+character being ours.
+
+Let's write a test for our examples today too.
+
+We'll import the input again.
+
+import input from "/aoc/inputs/02.txt?raw";
+
+```ts
+import input from "/aoc/inputs/02.txt?raw";
+```
+
+We'll use [`uvu`](https://github.com/lukeed/uvu) for testing, due to its ability
+to be run w/o a custom test runner.
+
+```ts
+import { test } from "uvu";
+import * as assert from "uvu/assert";
+```
+
+import { test } from "uvu";
+import * as assert from "uvu/assert";
+
+We can then build start on some TDD (test-driven development)!
+
+export const testInput = `A Y
+B X
+C Z`;
+
+The example input is
+
+```ts
+const testInput = `A Y
+B X
+C Z`;
+```
+
+> This strategy guide predicts and recommends the following:
+>
+> In the first round, your opponent will choose Rock (A), and you should choose
+> Paper (Y). This ends in a win for you with a score of 8 (2 because you chose
+> Paper + 6 because you won). In the second round, your opponent will choose
+> Paper (B), and you should choose Rock (X). This ends in a loss for you with a
+> score of 1 (1 + 0). The third round is a draw with both players choosing
+> Scissors, giving you a score of 3 + 3 = 6.
+
+import check from "pico-check";
+
+export const attempt1 = (input) => {
+  return 3;
+};
+
+export const testAttempt1 = (t) => {
+  t.is(attempt1(testInput), 6);
+};
+
+export let testResult1;
+
+export const garbage1 = check({ testAttempt1 }).then((x) => (testResult1 = x));
+
+import attempt1Raw from "./attempt1.ts?raw";
+
+<Code code={attempt1Raw} lang="ts" />
+
+```ts
+const attempt1 = (input) => {
+  return 3;
+};
+
+const testAttempt1 = (t) => {
+  t.is(attempt1(testInput), 6);
+};
+
+console.debug(await check({ testAttempt1 }));
+```
+
+<pre>
+  <code>{JSON.stringify(testResult1, null, 2)}</code>
+</pre>
+
+This fails b/c we're just returning a hardcoded number.
+
+Let's build a more complex implementation xD
+
+export const attempt2 = (input) => {
+    return input.split('\n').map((line) => line.split(' ')).map((([them, me]) => {
+        console.log('lol')
+    })).reduce((sum, [them, me]) => {
+let round = 0;
+
+if(me === "X") {round += 1;}
+
+if(me === "Y"){ round += 2;}
+
+if(me === "Z") {round += 3;}
+
+if(them === me) { round += 3; return round; }
+
+    }, 0)
+
+}

@@ -7,10 +7,12 @@ specifiers:
   '@types/react-dom': ^18.0.6
   astro: 0.0.0-error-overlay-20221130171441
   astro-remote: ^0.2.3
+  pico-check: ^3.0.5
   prettier: ^2.8.0
   prettier-plugin-astro: ^0.7.0
   react: ^18.0.0
   react-dom: ^18.0.0
+  uvu: ^0.5.6
   zod: ^3.19.1
 
 dependencies:
@@ -20,8 +22,10 @@ dependencies:
   '@types/react-dom': 18.0.9
   astro: 0.0.0-error-overlay-20221130171441
   astro-remote: 0.2.3
+  pico-check: 3.0.5
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  uvu: 0.5.6
   zod: 3.19.1
 
 devDependencies:
@@ -3023,6 +3027,11 @@ packages:
     dependencies:
       estree-walker: 3.0.1
       is-reference: 3.0.0
+    dev: false
+
+  /pico-check/3.0.5:
+    resolution: {integrity: sha512-5BERAj3XbYkYl7/nEmvO8gXNtQvA+AVYy9iJSEu4deMO5XSd+N2xYt+XatXFysNZJ15HzSL6F3MLhZ0tUKyKwA==}
+    hasBin: true
     dev: false
 
   /picocolors/1.0.0:
