@@ -12,6 +12,7 @@ specifiers:
   prettier-plugin-astro: ^0.7.0
   react: ^18.0.0
   react-dom: ^18.0.0
+  shiki: ^0.11.1
   uvu: ^0.5.6
   zod: ^3.19.1
 
@@ -25,6 +26,7 @@ dependencies:
   pico-check: 3.0.5
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  shiki: 0.11.1
   uvu: 0.5.6
   zod: 3.19.1
 
