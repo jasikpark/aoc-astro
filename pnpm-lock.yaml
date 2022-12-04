@@ -5,7 +5,7 @@ specifiers:
   '@astrojs/react': ^1.2.2
   '@types/react': ^18.0.21
   '@types/react-dom': ^18.0.6
-  astro: 0.0.0-error-overlay-20221130171441
+  astro: 0.0.0-error-overlay-20221203190718
   astro-remote: ^0.2.3
   pico-check: ^3.0.5
   prettier: ^2.8.0
@@ -21,7 +21,7 @@ dependencies:
   '@astrojs/react': 1.2.2_cn3ejhfta5lq2dae4xucvtkwvu
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
-  astro: 0.0.0-error-overlay-20221130171441
+  astro: 0.0.0-error-overlay-20221203190718
   astro-remote: 0.2.3
   pico-check: 3.0.5
   react: 18.2.0
@@ -818,8 +818,8 @@ packages:
       ultrahtml: 0.1.3
     dev: false
 
-  /astro/0.0.0-error-overlay-20221130171441:
-    resolution: {integrity: sha512-Da8n49oOjLXPekXMPzPxKExwSfzJgKzFfaPKNz8nfY2CRH7GEaq6lXWt69KfhzkYn/ZlAQ44NBnARgrUjxt/vA==}
+  /astro/0.0.0-error-overlay-20221203190718:
+    resolution: {integrity: sha512-okMOB19v5M99UND1MfXPfYhRrHtOV1sP0VbnjmETTE9Te/3+h/YQABCdWS3Hqy9/VoWypEZco9U68Kqbiun67g==}
     engines: {node: ^14.18.0 || >=16.12.0, npm: '>=6.14.0'}
     hasBin: true
     dependencies:

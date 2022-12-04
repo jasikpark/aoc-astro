@@ -64,13 +64,15 @@ export const attempt1 = (input) => {
   return 3;
 };
 
-export const testAttempt1 = (t) => {
-  t.is(attempt1(testInput), 6);
+export const testPartI = (attempt) => (t) => {
+  t.is(attempt(testInput), 6);
 };
 
 export let testResult1;
 
-export const garbage1 = check({ testAttempt1 }).then((x) => (testResult1 = x));
+export const garbage1 = check({ testAttempt1: testPartI(attempt1) }).then(
+  (x) => (testResult1 = x)
+);
 
 import attempt1Raw from "./attempt1.ts?raw";
 
@@ -81,11 +83,11 @@ const attempt1 = (input) => {
   return 3;
 };
 
-const testAttempt1 = (t) => {
-  t.is(attempt1(testInput), 6);
+const testPartI = (attempt) => (t) => {
+  t.is(attempt(testInput), 6);
 };
 
-console.debug(await check({ testAttempt1 }));
+console.debug(await check({ testAttempt1(attempt1) }));
 ```
 
 <pre>
@@ -96,20 +98,14 @@ This fails b/c we're just returning a hardcoded number.
 
 Let's build a more complex implementation xD
 
-export const attempt2 = (input) => {
-    return input.split('\n').map((line) => line.split(' ')).map((([them, me]) => {
-        console.log('lol')
-    })).reduce((sum, [them, me]) => {
-let round = 0;
+import { attempt2 } from "./attempt2.ts";
 
-if(me === "X") {round += 1;}
+export let testResult2;
 
-if(me === "Y"){ round += 2;}
+export const garbage1 = check({ testAttempt2: testPartI(attempt2) }).then(
+  (x) => (testResult2 = x)
+);
 
-if(me === "Z") {round += 3;}
-
-if(them === me) { round += 3; return round; }
-
-    }, 0)
-
-}
+<pre>
+  <code>{testResult2}</code>
+</pre>
